@@ -17,7 +17,7 @@ uint8_t
 c_check_input_index(const uint64_t index, const char* index_name,
         const uint64_t lw_bound, const uint64_t upper_bound)
 {
-    if (index >= lw_bound && index <= upper_bound) {
+    if (index < lw_bound || index > upper_bound) {
         GENERAL_ERROR(index_name, "has invalid range");
         return 0;
     }
