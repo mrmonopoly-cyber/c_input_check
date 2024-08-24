@@ -1,4 +1,4 @@
-C_FLAGS = -Wall -Wextra -fsanitize=address -g
+C_FLAGS = -Wall -Wextra -fsanitize=address -g -fPIC
 CC = gcc
 
 c_check_input_src := $(or $(C_CHECK_INPUT_ROOT), .)
