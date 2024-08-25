@@ -1,5 +1,6 @@
 CC = gcc
 C_FLAGS = -Wall -Wextra -g
+C_EXFLAGS = ""
 
 c_check_input_src := $(or $(C_CHECK_INPUT_ROOT), .)
 
@@ -17,7 +18,7 @@ release: clean c_check_input.o
 c_check_input.c := $(c_check_input_src)/c_check_input.c
 
 c_check_input.o: $(c_check_input.c)
-	$(CC) $(C_FLAGS) $(C_EXTR_FLAGS) $(c_check_input.c) -c
+	$(CC) $(C_FLAGS) $(C_EXFLAGS) $(c_check_input.c) -c
 
 c_check_input_clean:
 ifeq ($(wildcard c_check_input.o), c_check_input.o)
