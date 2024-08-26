@@ -1,10 +1,10 @@
 CC = gcc
-C_FLAGS = -Wall -Wextra -g
-C_EXFLAGS = ""
+C_FLAGS = -Wall -Wextra
+C_EXFLAGS = 
 
 c_check_input_src := $(or $(C_CHECK_INPUT_ROOT), .)
 
-DEBUG_FLAGS = -O0 -fsanitize=address
+DEBUG_FLAGS = -O0 -fsanitize=address -g
 RELEASE_FLAGS = -O2
 
 all: release
@@ -18,7 +18,7 @@ release: clean c_check_input.o
 c_check_input.c := $(c_check_input_src)/c_check_input.c
 
 c_check_input.o: $(c_check_input.c)
-	$(CC) $(C_FLAGS) $(C_EXFLAGS) $(c_check_input.c) -c
+	$(CC) $(C_FLAGS) $(C_EXFLAGS) -c $(c_check_input.c)
 
 c_check_input_clean:
 ifeq ($(wildcard c_check_input.o), c_check_input.o)
